@@ -37,3 +37,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'annotate', group: :development
+gem 'bootstrap-sass'
