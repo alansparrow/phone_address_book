@@ -38,3 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem 'annotate', group: :development
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby'

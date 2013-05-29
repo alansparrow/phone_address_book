@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529061112) do
+ActiveRecord::Schema.define(:version => 20130529092911) do
 
   create_table "calls", :force => true do |t|
     t.string   "from_phone_number"
@@ -55,5 +55,7 @@ ActiveRecord::Schema.define(:version => 20130529061112) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  add_index "users", ["phone_number"], :name => "index_users_on_phone_number", :unique => true
 
 end
