@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: calls
+#
+#  id                :integer          not null, primary key
+#  from_phone_number :string(255)
+#  to_phone_number   :string(255)
+#  start_time        :datetime
+#  end_time          :datetime
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from_phone_number: MyString
+  to_phone_number: MyString
+  start_time: 2013-05-29 15:02:54
+  end_time: 2013-05-29 15:02:54
+
+two:
+  from_phone_number: MyString
+  to_phone_number: MyString
+  start_time: 2013-05-29 15:02:54
+  end_time: 2013-05-29 15:02:54
