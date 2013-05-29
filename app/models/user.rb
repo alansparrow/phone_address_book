@@ -16,4 +16,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :address, :company, :email, :first_name, :last_name, :password_digest, :phone_number
+  has_many :contacts, dependent: :destroy
+  has_many :calls, dependent: :destroy
+  has_many :messages, dependent: :destroy
 end

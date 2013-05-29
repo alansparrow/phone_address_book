@@ -11,8 +11,10 @@
 #  company      :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  user_id      :integer
 #
 
 class Contact < ActiveRecord::Base
   attr_accessible :address, :company, :email, :first_name, :last_name, :phone_number
+  belongs_to :user
 end
