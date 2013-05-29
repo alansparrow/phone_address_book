@@ -1,3 +1,3 @@
-This is project for my OOP class. It's about creating a address book on a phone.
+This is project for my OOP class. It's about creating an phone address book.
 Hanyang University, Computer Engineering Department, 2nd year, 1st semester.
 South Korea, Seoul, 2013/05/29
