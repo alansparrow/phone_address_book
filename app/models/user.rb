@@ -12,6 +12,7 @@
 #  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -34,6 +35,13 @@ class User < ActiveRecord::Base
   # validates :email, format: { with: VALID_EMAIL_REGEX }
 
   # before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
 
   has_secure_password
+
+  private
+
+    def create_remember_token 
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

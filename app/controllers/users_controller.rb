@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     params[:user][:first_name] = params[:user][:phone_number]
   	@user = User.new(params[:user])
   	if @user.save
+      sign_in @user
       flash[:success] = "Welcome to the Cloud Phone Book!"
   		redirect_to @user
   	else
