@@ -1,6 +1,9 @@
 PhoneAddressBook::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :contacts
+  resources :calls, only: [:create, :destroy]
+  resources :messages, only: [:create, :destroy]
 
   root :to => 'static_pages#home'
 
@@ -8,7 +11,7 @@ PhoneAddressBook::Application.routes.draw do
 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+  match '/contact_me', to: 'static_pages#contact_me'
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 		user = User.find_by_phone_number(params[:session][:phone_number])
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_back_or user
+			redirect_back_or contacts_path
 		else
 			flash.now[:error] = 'Invalid phone number/password combination' 
 			render 'new'

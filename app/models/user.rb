@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  default_scope order: 'users.first_name ASC'
+
   private
 
     def create_remember_token 

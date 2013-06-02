@@ -1,0 +1,19 @@
+<% if current_user?(contact.user) %>
+
+	<tr>
+		<td><%= contact.first_name %></td>
+		<td><%= contact.last_name %></td>
+		<td><%= contact.phone_number %></td>
+		<td><%= contact.email %></td>
+		<td><%= contact.address %></td>
+		<td><%= contact.company %></td>
+		<td><%= link_to "", '#', class: "icon-headphones" %></td>
+		<td><%= link_to "", '#', class: "icon-comment" %></td>
+		<td><%= link_to "", edit_contact_path(contact) , class: "icon-edit" %></td>
+		<td><%= link_to "", contact, method: :delete,
+				data: { confirm: "Are you sure?" },
+				title: contact.first_name,
+				class: "icon-remove" %></td>
+	</tr>
+
+<% end %>

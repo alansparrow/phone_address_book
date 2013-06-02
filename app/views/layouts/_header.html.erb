@@ -4,8 +4,9 @@
 			<%= link_to "phone book", root_path, id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
-						<li><%= link_to "Home", root_path %></li>
+						<!-- <li><%= link_to "Home", root_path %></li> -->
 						<% if signed_in? %>
+							<li><%= link_to "Contacts", contacts_path %></li>
 							<li><%= link_to "Calls", '#' %></li>
 							<li><%= link_to "Messages", '#' %></li>
 							<li id="fat-menu" class="dropdown">

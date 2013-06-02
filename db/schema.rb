@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531042355) do
+ActiveRecord::Schema.define(:version => 20130602180040) do
 
   create_table "calls", :force => true do |t|
     t.string   "from_phone_number"
     t.string   "to_phone_number"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "user_id"
   end
+
+  add_index "calls", ["user_id", "created_at"], :name => "index_calls_on_user_id_and_created_at"
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130531042355) do
     t.integer  "user_id"
   end
 
+  add_index "messages", ["user_id", "created_at"], :name => "index_messages_on_user_id_and_created_at"
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130531042355) do
     t.string   "remember_token"
   end
 
+  add_index "users", ["first_name"], :name => "index_users_on_first_name"
   add_index "users", ["phone_number"], :name => "index_users_on_phone_number", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 

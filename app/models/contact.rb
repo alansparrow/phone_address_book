@@ -17,4 +17,12 @@
 class Contact < ActiveRecord::Base
   attr_accessible :address, :company, :email, :first_name, :last_name, :phone_number
   belongs_to :user
+
+  # VALID_PHONE_NUMBER_REGEX = /^\d+$/
+
+  # validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
+
+  validates :phone_number, presence: true, uniqueness: true
+
+  default_scope order: 'contacts.first_name ASC'
 end

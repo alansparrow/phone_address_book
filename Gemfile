@@ -39,3 +39,6 @@ gem 'jquery-rails'
 gem 'annotate', group: :development
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
+gem 'faker', '1.0.1'

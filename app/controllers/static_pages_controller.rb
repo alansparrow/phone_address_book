@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
+  	if signed_in?
+      redirect_to contacts_path
+  	end
   end
 
   def help
@@ -8,6 +11,6 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def contact
+  def contact_me
   end
 end
