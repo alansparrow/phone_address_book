@@ -27,12 +27,13 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
   VALID_PHONE_NUMBER_REGEX = /^\d+$/
 
   validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
 
-  # validates :email, format: { with: VALID_EMAIL_REGEX }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: { with: VALID_EMAIL_REGEX }
 
   # before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

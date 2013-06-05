@@ -12,8 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    params[:user][:email] = params[:user][:phone_number] + "@gmail.com"
-    params[:user][:first_name] = params[:user][:phone_number]
+    params[:user][:first_name] = params[:user][:email]
   	@user = User.new(params[:user])
   	if @user.save
       sign_in @user
