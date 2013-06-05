@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
 
 	def index
 		@contact = current_user.contacts.new
-  		@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 10)
+  		@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 5)
 	end
 
 	def show
@@ -21,8 +21,9 @@ class ContactsController < ApplicationController
 			flash[:success] = "Contact created!"
 			redirect_to contacts_path
 		else
-			@contacts = current_user.contacts.paginate(page: params[:page])
+			@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 5)
 			render 'index'
+			# redirect_to request.fullpath
 		end
 	end
 
