@@ -35,7 +35,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'annotate', group: :development
-gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
@@ -47,3 +46,7 @@ group :production do
   gem 'thin'
   gem 'pg'
 end
+
+# Twitter Bootstrap
+gem 'bootstrap-sass'
+gem 'font-awesome-sass-rails'

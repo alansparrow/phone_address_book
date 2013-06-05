@@ -22,7 +22,19 @@ class Contact < ActiveRecord::Base
 
   # validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
 
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true
 
   default_scope order: 'contacts.first_name ASC'
+
+  before_save :check_duplication
+
+  private 
+
+  	def check_duplication
+  		existing_contact = user.contacts.find_by_phone_number(phone_number)
+  		if !existing_contact.nil?
+  			errors.add(:Contact, "already exists!")
+  			return false
+  		end
+  	end
 end

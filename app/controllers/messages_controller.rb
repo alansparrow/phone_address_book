@@ -19,7 +19,6 @@ class MessagesController < ApplicationController
 			flash[:success] = "Sent successfully!"
 			redirect_to messages_path
 		else
-			flash[:error] = @message.errors.full_messages
 			render 'new'
 		end
 	end

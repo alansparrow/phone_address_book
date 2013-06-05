@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 	before_filter :signed_in_user
 	before_filter :correct_user, only: [:destroy, :edit, :update]
+	# before_filter :check_phone_number_duplication, only: [:update, :create]
 
 	def index
 		@contact = current_user.contacts.new
