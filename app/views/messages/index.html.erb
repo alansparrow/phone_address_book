@@ -1,0 +1,39 @@
+<div class="row">
+	<table class="table table-hover">
+		<caption>Messages (<%= @messages.count %>)</caption>
+		<thead>
+			<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>Content</th>
+				<th>Time</th>
+				<!-- <th>Email</th>
+				<th>Address</th>
+				<th>Company</th>
+				<th></th>
+				<th></th>
+				<th></th> -->
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if @messages.any? %>
+				<%= render partial: 'messages/message', collection: @messages %>
+			<% end %>
+
+			<!-- <tr>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td><%= link_to "", '#', class: "icon-headphones" %></td>
+				<td><%= link_to "", '#', class: "icon-comment" %></td>
+				<td><%= link_to "", '#', class: "icon-edit" %></td>
+				<td><%= link_to "", '#', class: "icon-remove" %></td>
+			</tr>
+-->			
+		</tbody>
+	</table>
+	<div class="paginate"><%= will_paginate @messages %></div>
+</div>

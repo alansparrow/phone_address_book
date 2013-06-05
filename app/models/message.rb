@@ -18,10 +18,10 @@ class Message < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 
-  VALID_PHONE_NUMBER_REGEX = /^\d+$/
+  # VALID_PHONE_NUMBER_REGEX = /^\d+$/
 
-  validates :from_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
-  validates :to_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+  # validates :from_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+  # validates :to_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
 
   default_scope order: 'messages.created_at DESC'
 end

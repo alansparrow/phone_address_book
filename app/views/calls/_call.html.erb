@@ -1,0 +1,12 @@
+<% if current_user?(call.user) %>
+	<tr>
+		<td><%= call.from_phone_number %></td>
+		<td><%= link_to call.to_phone_number,
+				@contacts.find_by_phone_number(call.to_phone_number) %></td>
+		<td><%= time_ago_in_words(call.created_at) %> ago.</td>
+		<td><%= link_to "", call, method: :delete,
+				data: { confirm: "Are you sure?" },
+				title: call.from_phone_number,
+				class: "icon-remove" %></td>
+	</tr>
+<% end %>

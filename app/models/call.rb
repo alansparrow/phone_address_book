@@ -16,10 +16,10 @@ class Call < ActiveRecord::Base
 
   validates :user_id, presence: true
 
-  VALID_PHONE_NUMBER_REGEX = /^\d+$/
+  # VALID_PHONE_NUMBER_REGEX = /^\d+$/
 
-  validates :from_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
-  validates :to_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+  # validates :from_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+  # validates :to_phone_number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
 
   default_scope order: 'calls.created_at DESC'
 end

@@ -7,8 +7,12 @@
 		<td><%= contact.email %></td>
 		<td><%= contact.address %></td>
 		<td><%= contact.company %></td>
-		<td><%= link_to "", '#', class: "icon-headphones" %></td>
-		<td><%= link_to "", '#', class: "icon-comment" %></td>
+		<td><%= link_to "", make_call_path(contact), method: :post,
+				data: { confirm: "Do you want to make a call to this number?" },
+				title: contact.first_name,
+				class: "icon-headphones" %></td>
+		<td><%= link_to "", send_message_path(contact), method: :get,
+				class: "icon-comment" %></td>
 		<td><%= link_to "", edit_contact_path(contact) , class: "icon-edit" %></td>
 		<td><%= link_to "", contact, method: :delete,
 				data: { confirm: "Are you sure?" },

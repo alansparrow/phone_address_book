@@ -1,0 +1,41 @@
+<div class="row">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Phone Number</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Company</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+<% if current_user?(@contact.user) %>
+	<tr>
+		<td><%= @contact.first_name %></td>
+		<td><%= @contact.last_name %></td>
+		<td><%= @contact.phone_number %></td>
+		<td><%= @contact.email %></td>
+		<td><%= @contact.address %></td>
+		<td><%= @contact.company %></td>
+		<td><%= link_to "", make_call_path(@contact), method: :post,
+				data: { confirm: "Do you want to make a call to this number?" },
+				title: @contact.first_name,
+				class: "icon-headphones" %></td>
+		<td><%= link_to "", send_message_path(@contact), method: :get,
+				class: "icon-comment" %></td>
+		<td><%= link_to "", edit_contact_path(@contact) , class: "icon-edit" %></td>
+		<td><%= link_to "", @contact, method: :delete,
+				data: { confirm: "Are you sure?" },
+				title: @contact.first_name,
+				class: "icon-remove" %></td>
+	</tr>
+<% end %>
+</tbody>
+</table>
+</div>

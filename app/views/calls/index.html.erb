@@ -1,0 +1,38 @@
+<div class="row">
+	<table class="table table-hover">
+		<caption>Calls (<%= @calls.count %>)</caption>
+		<thead>
+			<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>Time</th>
+				<!-- <th>Email</th>
+				<th>Address</th>
+				<th>Company</th>
+				<th></th>
+				<th></th>
+				<th></th> -->
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if @calls.any? %>
+				<%= render partial: 'calls/call', collection: @calls %>
+			<% end %>
+
+			<!-- <tr>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td><%= link_to "", '#', class: "icon-headphones" %></td>
+				<td><%= link_to "", '#', class: "icon-comment" %></td>
+				<td><%= link_to "", '#', class: "icon-edit" %></td>
+				<td><%= link_to "", '#', class: "icon-remove" %></td>
+			</tr>
+-->			
+		</tbody>
+	</table>
+	<div class="paginate"><%= will_paginate @calls %></div>
+</div>

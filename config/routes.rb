@@ -2,8 +2,8 @@ PhoneAddressBook::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :contacts
-  resources :calls, only: [:create, :destroy]
-  resources :messages, only: [:create, :destroy]
+  resources :calls#, only: [:create, :destroy]
+  resources :messages#, only: [:create, :destroy]
 
   root :to => 'static_pages#home'
 
@@ -15,7 +15,12 @@ PhoneAddressBook::Application.routes.draw do
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  
+
+  match '/contacts/:id/make_call', to: 'calls#create', as: :make_call, via: :post
+
+  match '/contacts/:id/send_message', to: 'messages#new', as: :send_message, via: :get
+
+  # match '/contacts/:id/messages', to: 'messages#create', as: :send_message, via: :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

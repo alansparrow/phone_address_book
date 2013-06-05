@@ -1,0 +1,13 @@
+<% if current_user?(message.user) %>
+	<tr>
+		<td><%= message.from_phone_number %></td>
+		<td><%= link_to message.to_phone_number,
+				@contacts.find_by_phone_number(message.to_phone_number) %></td>
+		<td><%= message.content %></td>
+		<td><%= time_ago_in_words(message.created_at) %> ago.</td>
+		<td><%= link_to "", message, method: :delete,
+				data: { confirm: "Are you sure?" },
+				title: message.from_phone_number,
+				class: "icon-remove" %></td>
+	</tr>
+<% end %>
