@@ -26,15 +26,15 @@ class Contact < ActiveRecord::Base
 
   default_scope order: 'contacts.first_name ASC'
 
-  before_save :check_duplication
+  # before_save :check_duplication
 
-  private 
+  # private 
 
-  	def check_duplication
-  		existing_contact = user.contacts.find_by_phone_number(phone_number)
-  		if !existing_contact.nil?
-  			errors.add(:Contact, "already exists!")
-  			return false
-  		end
-  	end
+  # 	def check_duplication
+  # 		existing_contact = user.contacts.find_by_phone_number(phone_number)
+  # 		if !existing_contact.nil?
+  # 			errors.add(:Contact, "already exists!")
+  # 			return false
+  # 		end
+  # 	end
 end

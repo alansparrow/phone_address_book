@@ -17,15 +17,39 @@ class ContactsController < ApplicationController
 	end
 
 	def create
-		@contact = current_user.contacts.build(params[:contact])
-		if @contact.save
-			flash[:success] = "Contact created!"
-			redirect_to contacts_path
+		existing_contact = current_user.contacts.
+							find_by_phone_number(params[:contact][:phone_number])
+		@contact = current_user.contacts.build(params[:contact])	
+		if existing_contact.nil?
+			# @contact = current_user.contacts.build(params[:contact])	
+			if @contact.save
+				flash[:success] = "Contact created!"
+				redirect_to contacts_path
+			else
+				# @contact = current_user.contacts.new
+				@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 5)
+				render 'index'
+			end
 		else
+			# @contact.errors(:Contact, "")
+			# @contact = current_user.contacts.new
+			flash.now[:error] = "Contact already exists!"	
 			@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 5)
 			render 'index'
-			# redirect_to request.fullpath
 		end
+
+
+		
+			# @contact = current_user.contacts.build(params[:contact])	
+			# if @contact.save
+			# 	flash[:success] = "Contact created!"
+			# 	redirect_to contacts_path
+			# else
+			# 	#@contact = current_user.contacts.new # this make the 1st @contact missed
+			# 	@contacts = current_user.contacts.paginate(page: params[:page], :per_page => 5)
+			# 	render 'index'
+			# end
+		
 	end
 
 	def destroy
