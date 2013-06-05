@@ -1,0 +1,39 @@
+<% provide(:title, 'Result') %>
+<div class="row">
+	<table class="table table-hover">
+		<caption>Results (<%= @contacts.count %>)</caption>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Phone Number</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Company</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if @contacts.any? %>
+				<%= render partial: 'contacts/contact', collection: @contacts %>
+			<% end %>
+
+			<!-- <tr>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td>...</td>
+				<td><%= link_to "", '#', class: "icon-headphones" %></td>
+				<td><%= link_to "", '#', class: "icon-comment" %></td>
+				<td><%= link_to "", '#', class: "icon-edit" %></td>
+				<td><%= link_to "", '#', class: "icon-remove" %></td>
+			</tr>
+-->			
+		</tbody>
+	</table>
+	<div class="paginate"><%= will_paginate @contacts %></div>
+</div>

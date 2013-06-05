@@ -20,6 +20,8 @@ PhoneAddressBook::Application.routes.draw do
 
   match '/contacts/:id/send_message', to: 'messages#new', as: :send_message, via: :get
 
+  match '/search', to: 'static_pages#search', via: :get
+
   # match '/contacts/:id/messages', to: 'messages#create', as: :send_message, via: :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
